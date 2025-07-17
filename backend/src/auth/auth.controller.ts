@@ -3,7 +3,6 @@ import { Controller, Post, UseGuards, Body, Res } from '@nestjs/common';
 
 import { UsersService } from '../users/users.service';
 import { AuthService } from './auth.service';
-import { LocalGuard } from './guards/local.guard';
 import { CreateUserDto } from '../users/dto/create-user.dto';
 import { SigninUserDto } from './dto/sign-in-user.dto';
 import { plainToInstance } from 'class-transformer';
@@ -16,7 +15,6 @@ export class AuthController {
     private authService: AuthService,
   ) {}
 
-  @UseGuards(LocalGuard)
   @Post('signin')
   async signin(
     @Body() signinUserDto: SigninUserDto,
