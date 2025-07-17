@@ -23,6 +23,9 @@ export class AuthController {
     const token = await this.authService.signin(signinUserDto);
     response.cookie('jwt', token, {
       httpOnly: true,
+      secure: true,
+      sameSite: 'none',
+      domain: '.danielkupi.students.nomorepartiessbs.ru',
       maxAge: 36000000,
     });
 
@@ -38,6 +41,9 @@ export class AuthController {
     const token = this.authService.auth(createdUser);
     response.cookie('jwt', token, {
       httpOnly: true,
+      secure: true,
+      sameSite: 'none',
+      domain: '.danielkupi.students.nomorepartiessbs.ru',
       maxAge: 36000000,
     });
 
