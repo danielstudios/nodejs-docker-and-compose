@@ -27,6 +27,7 @@ export class AuthController {
       sameSite: 'none',
       domain: '.students.nomorepartiessbs.ru',
       maxAge: 36000000,
+      path: '/',
     });
 
     return { access_token: token };
@@ -45,6 +46,7 @@ export class AuthController {
       sameSite: 'none',
       domain: '.students.nomorepartiessbs.ru',
       maxAge: 36000000,
+      path: '/',
     });
 
     return plainToInstance(UserProfileResponseDto, createdUser);
