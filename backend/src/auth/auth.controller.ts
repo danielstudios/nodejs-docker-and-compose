@@ -24,8 +24,8 @@ export class AuthController {
     response.cookie('jwt', token, {
       httpOnly: true,
       secure: true,
-      sameSite: 'lax',
-      domain: 'students.nomorepartiessbs.ru',
+      sameSite: 'none',
+      domain: '.students.nomorepartiessbs.ru',
       maxAge: 36000000,
     });
 
@@ -42,8 +42,8 @@ export class AuthController {
     response.cookie('jwt', token, {
       httpOnly: true,
       secure: true,
-      sameSite: 'lax',
-      domain: 'students.nomorepartiessbs.ru',
+      sameSite: 'none',
+      domain: '.students.nomorepartiessbs.ru',
       maxAge: 36000000,
     });
 
