@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  database:
+    container_name: kupipodariday-db
+    image: postgres:13-alpine
+    env_file:
+      - .env
+    volumes:
+      - ./backend/postgres-init:/docker-entrypoint-initdb.d
+      - ./pg-data:/var/lib/postgresql/data/pgdata
+    networks:
+      - backend-network
+    ports:
+      - "5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dbuser -d kupipodariday_db"]
+      interval: 5s
+      timeout: 10s
+      retries: 10
+
+  backend:
+    container_name: kupipodariday-backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    ports:
+      - "4000:3000"  # 4000 внешний, 3000 внутренний
+    depends_on:
+      database:
+        condition: service_healthy
+    networks:
+      - backend-network
+      - frontend-network
+    restart: unless-stopped
+
+  frontend:
+    container_name: kupipodariday-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "8081:80"
+    depends_on:
+      - backend
+    networks:
+      - frontend-network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+
+networks:
+  backend-network:
+    internal: true
+  frontend-network:
