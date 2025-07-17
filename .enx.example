@@ -1,0 +1,7 @@
+JWT_SECRET=super_secret
+POSTGRES_PASSWORD=super_password
+POSTGRES_DB=kupipodariday_db
+POSTGRES_USER=dbuser
+POSTGRES_HOST=database
+PGDATA=/var/lib/postgresql/data/pgdata
+POSTGRES_PORT=5432
