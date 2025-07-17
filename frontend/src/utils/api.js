@@ -17,6 +17,7 @@ const headersWithAuthorizeFn = () => ({
 export const registerUser = (userData) => {
   return fetch(`${URL}/signup/`, {
     method: "POST",
+    credentials: 'include',
     headers: headersWithContentType,
     body: JSON.stringify(userData),
   }).then(checkResponse);
@@ -25,6 +26,7 @@ export const registerUser = (userData) => {
 export const loginUser = (username, password) => {
   return fetch(`${URL}/signin/`, {
     method: "POST",
+    credentials: 'include',
     headers: headersWithContentType,
     body: JSON.stringify({ username, password }),
   })
@@ -50,6 +52,7 @@ export const refreshAndSet = (method, contextSetter) => {
 export const getOwnUser = () => {
   return fetch(`${URL}/users/me/`, {
     method: "GET",
+    credentials: 'include',
     headers: headersWithAuthorizeFn(),
   }).then(checkResponse);
 };
@@ -65,6 +68,7 @@ export const refreshUser = (contextSetter) => {
 export const updateProfile = (user) => {
   return fetch(`${URL}/users/me/`, {
     method: "PATCH",
+    credentials: 'include',
     headers: headersWithAuthorizeFn(),
     body: JSON.stringify(user),
   }).then(checkResponse);
@@ -73,6 +77,7 @@ export const updateProfile = (user) => {
 export const getCards = (page = 1) => {
   return fetch(`${URL}/wishes/`, {
     method: "GET",
+    credentials: 'include',
     headers: headersWithAuthorizeFn(),
   }).then(checkResponse);
 };
@@ -80,6 +85,7 @@ export const getCards = (page = 1) => {
 export const getOwnWishes = () => {
   return fetch(`${URL}/users/me/wishes`, {
     method: "GET",
+    credentials: 'include',
     headers: headersWithAuthorizeFn(),
   }).then(checkResponse);
 };
@@ -87,6 +93,7 @@ export const getOwnWishes = () => {
 export const getAnotherUserWishes = (username) => {
   return fetch(`${URL}/users/${username}/wishes`, {
     method: "GET",
+    credentials: 'include',
     headers: headersWithAuthorizeFn(),
   }).then(checkResponse);
 };
@@ -94,6 +101,7 @@ export const getAnotherUserWishes = (username) => {
 export const getAnotherUser = (username) => {
   return fetch(`${URL}/users/${username}`, {
     method: "GET",
+    credentials: 'include',
     headers: headersWithAuthorizeFn(),
   }).then(checkResponse);
 };
@@ -101,6 +109,7 @@ export const getAnotherUser = (username) => {
 export const queryUser = (query) => {
   return fetch(`${URL}/users/find`, {
     method: "POST",
+    credentials: 'include',
     headers: headersWithAuthorizeFn(),
     body: JSON.stringify({ query }),
   }).then(checkResponse);
@@ -109,6 +118,7 @@ export const queryUser = (query) => {
 export const removeWish = (id) => {
   return fetch(`${URL}/wishes/${id}`, {
     method: "DELETE",
+    credentials: 'include',
     headers: headersWithAuthorizeFn(),
   }).then(checkResponse);
 };
@@ -116,6 +126,7 @@ export const removeWish = (id) => {
 export const addOffer = (offer) => {
   return fetch(`${URL}/offers`, {
     method: "POST",
+    credentials: 'include',
     headers: headersWithAuthorizeFn(),
     body: JSON.stringify(offer),
   }).then(checkResponse);
@@ -124,6 +135,7 @@ export const addOffer = (offer) => {
 export const getTopCards = () => {
   return fetch(`${URL}/wishes/top`, {
     method: "GET",
+    credentials: 'include',
     headers: headersWithAuthorizeFn(),
   }).then(checkResponse);
 };
@@ -131,6 +143,7 @@ export const getTopCards = () => {
 export const getLastCards = (page = 1) => {
   return fetch(`${URL}/wishes/last`, {
     method: "GET",
+    credentials: 'include',
     headers: headersWithAuthorizeFn(),
   }).then(checkResponse);
 };
@@ -138,6 +151,7 @@ export const getLastCards = (page = 1) => {
 export const getCard = (id) => {
   return fetch(`${URL}/wishes/${id}`, {
     method: "GET",
+    credentials: 'include',
     headers: headersWithAuthorizeFn(),
   }).then(checkResponse);
 };
@@ -145,6 +159,7 @@ export const getCard = (id) => {
 export const createCard = (wish) => {
   return fetch(`${URL}/wishes`, {
     method: "POST",
+    credentials: 'include',
     headers: headersWithAuthorizeFn(),
     body: JSON.stringify(wish),
   }).then(checkResponse);
@@ -153,6 +168,7 @@ export const createCard = (wish) => {
 export const updateCard = (card, id) => {
   return fetch(`${URL}/wishes/${id}`, {
     method: "PATCH",
+    credentials: 'include',
     headers: headersWithAuthorizeFn(),
     body: JSON.stringify(card),
   }).then(checkResponse);
@@ -161,6 +177,7 @@ export const updateCard = (card, id) => {
 export const copyWish = (id) => {
   return fetch(`${URL}/wishes/${id}/copy`, {
     method: "POST",
+    credentials: 'include',
     headers: headersWithAuthorizeFn(),
   }).then(checkResponse);
 };
@@ -168,6 +185,7 @@ export const copyWish = (id) => {
 export const removeCard = (id) => {
   return fetch(`${URL}/wishes/${id}`, {
     method: "DELETE",
+    credentials: 'include',
     headers: headersWithAuthorizeFn(),
   }).then(checkResponse);
 };
@@ -175,6 +193,7 @@ export const removeCard = (id) => {
 export const addCollection = (data) => {
   return fetch(`${URL}/wishlistlists`, {
     method: "POST",
+    credentials: 'include',
     headers: headersWithAuthorizeFn(),
     body: JSON.stringify(data),
   }).then(checkResponse);
@@ -183,6 +202,7 @@ export const addCollection = (data) => {
 export const getCollections = () => {
   return fetch(`${URL}/wishlistlists`, {
     method: "GET",
+    credentials: 'include',
     headers: headersWithAuthorizeFn(),
   }).then(checkResponse);
 };
@@ -190,6 +210,7 @@ export const getCollections = () => {
 export const getCollection = (id) => {
   return fetch(`${URL}/wishlistlists/${id}`, {
     method: "GET",
+    credentials: 'include',
     headers: headersWithAuthorizeFn(),
   }).then(checkResponse);
 };
@@ -197,6 +218,7 @@ export const getCollection = (id) => {
 export const deleteCollection = (id) => {
   return fetch(`${URL}/wishlistlists/${id}`, {
     method: "DELETE",
+    credentials: 'include',
     headers: headersWithAuthorizeFn(),
   }).then(checkResponse);
 };
