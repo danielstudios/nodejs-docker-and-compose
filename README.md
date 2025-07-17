@@ -1,3 +1,3 @@
-# Докеризация приложения
-
-Перед тем как приступить к выполнению проектной работы разместите в репозитории исходный код фронтенд и бэкенд частей сервиса КупиПодариДай, реализованного вами ранее. 
+* IP-Адрес: 158.160.190.238
+* Адрес FrontEnd: https://danielmesto.students.nomorepartiessbs.ru
+* Адрес BackEnd: https://api.danielmesto.students.nomorepartiessbs.ru
