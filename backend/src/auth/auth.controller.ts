@@ -25,7 +25,7 @@ export class AuthController {
       httpOnly: true,
       secure: true,
       sameSite: 'none',
-      domain: '.danielkupi.students.nomorepartiessbs.ru',
+      domain: 'danielkupi.students.nomorepartiessbs.ru',
       maxAge: 36000000,
     });
 
@@ -43,7 +43,7 @@ export class AuthController {
       httpOnly: true,
       secure: true,
       sameSite: 'none',
-      domain: '.danielkupi.students.nomorepartiessbs.ru',
+      domain: 'danielkupi.students.nomorepartiessbs.ru',
       maxAge: 36000000,
     });
 
